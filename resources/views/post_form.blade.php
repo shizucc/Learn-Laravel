@@ -17,11 +17,14 @@
                 <textarea class="form-control" id="body" rows="3" name='body' required></textarea>
             </div>
             <label for="category" class="form-label">Category</label>
-            <select class="form-select mb-3" aria-label="Category select" id='category' name='category'>
+
+            <select class="categorySelect" name="category" id='category'>
                 @foreach ($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
             </select>
+            <br>
+ 
             <label for="user" class="form-label">User</label>
             <select class="form-select mb-3" aria-label="User select" id='user' name='user'>
                 @foreach ($users as $user)
@@ -31,4 +34,11 @@
             <button class='btn btn-primary'>Add</button>
         </form>
     </div>
+@endsection
+@section('extra')
+    <script>
+        $(document).ready(function() {
+        $('.categorySelect').select2();
+    });
+    </script>
 @endsection

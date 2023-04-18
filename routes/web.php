@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -18,13 +19,8 @@ use App\Models\User;
 |
 */
 
-Route::get('/', function () {
-    $data = array(
-        'title' => 'home'
-    );
-    return view('index',$data);
-})->named('dashboard');
-
+Route::get('/',[LandingPageController::class, 'index'])->named('dashboard');
+Route::get('/test',[LandingPageController::class, 'index']);
 
 Route::get('/about', function(){
     $data = array(
